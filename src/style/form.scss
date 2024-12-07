@@ -1,4 +1,4 @@
-@use './index' as s;
+@use './index.scss' as s;
 
 .form {
 	display: flex;
@@ -17,7 +17,7 @@
 		display: none;
 	
 
-	&__active {
+	&--active {
 		display: block;
 	}	
 }}
@@ -33,6 +33,17 @@
 		&:active {
 			opacity: 0.3;
 		}
+
+		&--disabled {
+			opacity: 0.5;
+			cursor: default;
+
+			&:hover,
+			&:active {
+				opacity: 0.5;
+				cursor: default;
+			}
+		}
 	}
 .alert {
 		border: 1px solid transparent;
@@ -42,16 +53,27 @@
 		
 
 		&--success {
-			border-color: s.color('green');
-			color: s.color('green');
+			border-color: s.color(green);
+			color: s.color(green);
 		}
 		&--error {
 			border-color: s.color(red);
 			color: s.color(red);
 		}
 		&--progress {
-			border-color: s.color('blue');
-			color: s.color('blue');
+			border-color: s.color(blue);
+			color: s.color(blue);
+		}
+
+
+		&--disabled {
+			display: none;
+		}
+	}
+
+	.validation {
+		&--active {
+				border-color: s.color(red) !important;	
 		}
 	}
 
